@@ -1,7 +1,7 @@
 import { verifyWebhook } from '@clerk/nextjs/webhooks'
 import { NextRequest } from 'next/server'
-import { db } from '../../../db/index'
-import { users } from '../../../db/schema'
+//import { db } from '../../../db/index'
+//import { users } from '../../../db/schema'
 
 export async function POST(req: NextRequest) {
   try {
@@ -18,17 +18,17 @@ export async function POST(req: NextRequest) {
       // Handle user created event
       console.log('User created:', evt.data)
 
-      // Example: Insert user into the database
-      const created_user = await db.insert(users).values({  
-        clerkId: evt.data.id,
-        email: evt.data.email_addresses[0]?.email_address || null,
-        firstName: evt.data.first_name || null,
-        lastName: evt.data.last_name || null,
-        phone: evt.data.phone_numbers[0]?.phone_number || null,
-        role: 'CUSTOMER', // Default role
-      })
-
-      console.log('Inserted user into database:', created_user)
+      //// Example: Insert user into the database
+      //const created_user = await db.insert(users).values({  
+      //  clerkId: evt.data.id,
+      //  email: evt.data.email_addresses[0]?.email_address || null,
+      //  firstName: evt.data.first_name || null,
+      //  lastName: evt.data.last_name || null,
+      //  phone: evt.data.phone_numbers[0]?.phone_number || null,
+      //  role: 'CUSTOMER', // Default role
+      //})
+//
+      //console.log('Inserted user into database:', created_user)
 
     }
 
