@@ -1,17 +1,28 @@
 import Form from 'next/form';
+import { db } from '@/db/index';
 
 export default function AdminPage(){
 
-    const findUser = async () => {
+    const findUser = async (fromData) => {
         "use server"
 
-        console.log("Finding user...");
+        const firstName = fromData.get("first_name");
+        const lastName = fromData.get("last_name");
+
+        const foundUsers = await db
+            .select()
+            .from(users)
+            .where(
+                users.firstName.eq(firstName).and(users.lastName.eq(lastName))
+            );
+
+        console.log("found Users:", foundUsers);
     }
 
     return(
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center justify-center h-screen flex-col">
             <h1>This page is for Admins only</h1>
-            <div>
+            <div className="flex flex-col gap-4 mt-4">
                 <Form action={findUser}>
                     <input name="first_name" type="text" placeholder="First Name" className="input input-bordered" />
                     <input name="last_name" type="text" placeholder="Last Name" className="input input-bordered" />
