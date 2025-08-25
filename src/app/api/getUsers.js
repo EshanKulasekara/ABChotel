@@ -3,7 +3,7 @@ import { db } from "@/db/index";
 import { users } from "@/db/schema";
 import { and, eq } from "drizzle-orm";
 
-export async function POST(req: NextRequest) {
+export async function POST(req) {
   const formData = await req.formData();
   const firstName = formData.get("first_name");
   const lastName = formData.get("last_name");
