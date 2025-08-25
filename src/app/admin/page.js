@@ -13,9 +13,7 @@ export default function AdminPage(){
         const foundUsers = await db
             .select()
             .from(users)
-            .where(
-                users.firstName.eq(firstName).and(users.lastName.eq(lastName))
-            );
+            .where(and(eq(users.firstName, firstName),eq(users.lastName, lastName)));
 
         console.log("found Users:", foundUsers);
     }
