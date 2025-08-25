@@ -1,5 +1,6 @@
 import Form from 'next/form';
 import { db } from '@/db/index';
+import { users } from '@/db/schema';
 
 export default function AdminPage(){
 
