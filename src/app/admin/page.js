@@ -1,6 +1,11 @@
 import Form from 'next/form';
 
 export default function AdminPage(){
+
+    const findUser = () => {
+        console.log("Finding user...");
+    }
+
     return(
         <div className="flex items-center justify-center h-screen">
             <h1>This page is for Admins only</h1>
